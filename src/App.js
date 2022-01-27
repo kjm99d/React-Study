@@ -1,9 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import { useDispatch, useSelector } from 'react-redux';
 
-function App() {
+
+function App({ callback }) {
+
+  callback();
+  
+  const number = useSelector( (state) => state );
+
+
+  const dispatch = useDispatch();
+  console.log(number)
+
   return (
+    
     <div className="App">
+      <p>현재 숫자 : {number}</p>
+      <button onClick={() => dispatch({type: 'inc'})}>INC</button>
+      <button onClick={() => dispatch({type: 'dec'})}>DEC</button>
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
