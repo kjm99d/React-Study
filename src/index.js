@@ -4,16 +4,12 @@ import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'
 
-const number = 10;
-function reducer(state = number, action ) {
+const user_id = "미로그인";
+function reducer(state = user_id, action ) {
 
-if (action.type === 'inc') {
-  state++;
-  return state;
-} else if (action.type == 'dec') {
-  state--;
-  return state;
-}
+if (action.type === 'GET') {
+  user_id = state;
+} 
 
 return state;
 
